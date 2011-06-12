@@ -9,34 +9,43 @@ div.first
   height: 500px
   width: 500px
   position: relative
+  border: solid 1px #DDD
   div
     display: block
     position: absolute
-    z-index: 2
+    right: 0px
+    bottom: 0px
 
-$bg_color : #333
-@for $i from 0 through 30
-  $foo : #000
-  @for $j from 0 through 30
+@for $i from 0 through 20
+  @for $j from 0 through 20
     #square_#{$i}_#{$j}
-      color: #{$foo}
-      width: #{(500-($j*50))}px
-      height: #{(500-($i*50))}px
-      right: 0px
-      bottom: 0px
+      width: #{(500-($j*25))}px
+      height: #{(500-($i*25))}px
       &:hover
-        #character
-          right: #{(450-($j*50))}px
-          bottom: #{(450-($i*50))}px
-          z-index: 1
+        @for $k from 1 through 9
+          #character_#{$k}
+            //$x : #{(430-($j*20))}
+            right: #{(430-($j*25))}px
+            //@include mani($x)
+            //@include animation(foo, 1s, 1s)
+            bottom: #{(450-($i*25))}px
 
 
+@for $i from 1 through 6
+  #character_#{$i}
+    @include transition($i)
+    width: #{(45-$i*5)}px
+    height: #{(45-$i*5)}px
+    opacity: #{(9-$i)/10}
 
-
-#character
+span.char
   @include rounded
-  background: red
-  width: 30px
-  height: 30px
   position: absolute
+  right: 700px
+  display: block
+  bottom: 700px
+  background: red
+  &:hover
+    background: blue
+
 

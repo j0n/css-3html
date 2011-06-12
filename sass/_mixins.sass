@@ -3,6 +3,22 @@
   -moz-border-radius: $radius
   -webkit-border-radius: $radius
 
+@mixin transition($i)
+  transition: all #{$i/10}s ease-out
+  -webkit-transition: all #{$i/10}s ease-out
+
+
+@mixin animation($name, $durations, $delay)
+  -webkit-animation: $name $durations $delay alternate forwards
+
+@mixin moveanimation($x, $y,  $delay)
+  @include mani($x)
+  -webkit-animation-name : foo
+  -webkit-animation-fill-mode: forwards
+  -webkit-animation-delay: 2s
+  -webkit-animation-fill-mode: forwards
+  -webkit-animation-iteration-count: 1
+
 @mixin bounce
   -webkit-animation-name: bounce
   -webkit-animation-duration: 4s
@@ -12,6 +28,12 @@
   -webkit-animation-fill-mode: forwards
   -webkit-animation-delay: 2s
 
+@mixin mani($x)
+  @-webkit-keyframes foo
+    0%
+      right: 0px
+    100%
+      right: #{$x}px
 
 @-webkit-keyframes jump
   0%
@@ -24,6 +46,24 @@
     opacity: 0
   100%
     opacity: 1
+
+@-webkit-keyframes pulse
+  0%
+    background-color: red
+    opacity: 1.0
+    -webkit-transform: scale(1.0) rotate(0deg)
+  33%
+    background-color: blue
+    opacity: 0.75
+    -webkit-transform: scale(1.1) rotate(-5deg)
+  67%
+    background-color: green
+    opacity: 0.5
+    -webkit-transform: scale(1.1) rotate(5deg)
+  100%
+    background-color: red
+    opacity: 1.0
+    -webkit-transform: scale(1.0) rotate(0deg)
 
 @-webkit-keyframes pulse
   0%
