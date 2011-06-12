@@ -1,0 +1,44 @@
+@mixin rounded($side, $radius)
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+
+@mixin bounce
+  -webkit-animation-name: bounce
+  -webkit-animation-duration: 4s
+  -webkit-animation-iteration-count: 10
+  -webkit-animation-direction: alternate
+  -webkit-animation-timing-function: ease-out
+  -webkit-animation-fill-mode: forwards
+  -webkit-animation-delay: 2s
+
+
+@-webkit-keyframes jump
+  0%
+    width: 50px
+  100%
+    width: 300px
+
+@-webkit-keyframes fade
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@-webkit-keyframes pulse
+  0%
+    background-color: red
+    opacity: 1.0
+    -webkit-transform: scale(1.0) rotate(0deg)
+  33%
+    background-color: blue
+    opacity: 0.75
+    -webkit-transform: scale(1.1) rotate(-5deg)
+  67%
+    background-color: green
+    opacity: 0.5
+    -webkit-transform: scale(1.1) rotate(5deg)
+  100%
+    background-color: red
+    opacity: 1.0
+    -webkit-transform: scale(1.0) rotate(0deg)

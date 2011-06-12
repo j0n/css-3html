@@ -1,0 +1,42 @@
+@import 'variables'
+@import 'mixins'
+
+body
+  margin: 0
+  padding: 0
+
+div.first
+  height: 500px
+  width: 500px
+  position: relative
+  div
+    display: block
+    position: absolute
+    z-index: 2
+
+$bg_color : #333
+@for $i from 0 through 30
+  $foo : #000
+  @for $j from 0 through 30
+    #square_#{$i}_#{$j}
+      color: #{$foo}
+      width: #{(500-($j*50))}px
+      height: #{(500-($i*50))}px
+      right: 0px
+      bottom: 0px
+      &:hover
+        #character
+          right: #{(450-($j*50))}px
+          bottom: #{(450-($i*50))}px
+          z-index: 1
+
+
+
+
+#character
+  @include rounded
+  background: red
+  width: 30px
+  height: 30px
+  position: absolute
+
