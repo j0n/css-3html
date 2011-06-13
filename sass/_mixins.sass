@@ -9,7 +9,7 @@
 
 
 @mixin animation($name, $durations, $delay)
-  -webkit-animation: $name $durations $delay alternate forwards
+  -webkit-animation: $name $durations $delay forwards
 
 @mixin moveanimation($x, $y,  $delay)
   @include mani($x)
@@ -65,20 +65,3 @@
     opacity: 1.0
     -webkit-transform: scale(1.0) rotate(0deg)
 
-@-webkit-keyframes pulse
-  0%
-    background-color: red
-    opacity: 1.0
-    -webkit-transform: scale(1.0) rotate(0deg)
-  33%
-    background-color: blue
-    opacity: 0.75
-    -webkit-transform: scale(1.1) rotate(-5deg)
-  67%
-    background-color: green
-    opacity: 0.5
-    -webkit-transform: scale(1.1) rotate(5deg)
-  100%
-    background-color: red
-    opacity: 1.0
-    -webkit-transform: scale(1.0) rotate(0deg)
